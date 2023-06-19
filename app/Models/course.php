@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class course extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+    protected $fillable = [
+        'name',
+        'description',
+    ];
+
+    // Relationships
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
 }
